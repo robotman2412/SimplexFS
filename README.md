@@ -6,13 +6,14 @@ SimplexFS is designed to be a simple-as-possible filesystem for embedded devices
 # format
 
 First, simplex is seperated into up to 65536 sectors of 256 bytes each.
+All numbers are stored in little-endian.
 
 ## filesystem header
 The first sector always contains a header, as follows:
 
 | OFFSET | LENGTH | NAME            | DESCRIPTION |
 | :----- | :----- | :-------------- | :---------- |
-| 0      | 4      | sxh_magic       | Magic, always 0xfe 0xca 0x01 0x32. |
+| 0      | 5      | sxh_magic       | Magic, always 0xfe 0xca 0x01 0x32 0x94. |
 | 5      | 2      | sxh_nsect       | Number of sectors in total. |
 | 7      | 2      | sxh_fat_entries | Allocation unit size in entries of 16 bits. |
 | 9      | 2      | sxh_fat_sectors | Allocation unit size in sectors. |
