@@ -103,21 +103,24 @@ Found within the directory, a file entry is used to find a file and infomation a
 | 11     | 5      | reserved  | Reserved bytes: set to 0x00. |
 
 ### file flags
-| BIT | HEX    | DESCRIPTION |
-| :-- | :----- | :---------- |
-| 0   | 0x0001 | Guest exec premission: 1 if a non-owner user may execute the file. |
-| 1   | 0x0002 | Guest edit premission: 1 if a non-owner user may edit or delete the file. |
-| 2   | 0x0004 | Guest read premission: 1 if a non-owner user may read the file. |
-| 3   | 0x0008 | Group exec premission: 1 if the owner's group may execute the file. |
-| 4   | 0x0010 | Group edit premission: 1 if the owner's group may edit or delete the file. |
-| 5   | 0x0020 | Group read premission: 1 if the owner's group may read the file. |
-| 6   | 0x0040 | Owner exec premission: 1 if the owner may execute the file. |
-| 7   | 0x0080 | Owner edit premission: 1 if the owner may edit or delete the file. |
-| 8   | 0x0100 | Owner read premission: 1 if the owner may read the file. |
-| 9-12| 0x1E00 | Reserved: set to 0. |
-| 13  | 0x2000 | Set user ID: 1 if the file, upon executed, must use the owner's user ID instead of the executor's user ID. |
-| 14  | 0x4000 | Is directory: 1 if the file is a directory. |
-| 15  | 0x8000 | Is system: 1 if the file or directory is required by the system. |
+These flags are equal to the linux mode flags (man 2 chmod).
+| BIT   | OCTAL    | HEX    | DESCRIPTION |
+| :---- | :------- | :----- | :---------- |
+| 0     | 0q000001 | 0x0001 | Guest exec premission: 1 if a non-owner user may execute the file. |
+| 1     | 0q000002 | 0x0002 | Guest edit premission: 1 if a non-owner user may edit or delete the file. |
+| 2     | 0q000004 | 0x0004 | Guest read premission: 1 if a non-owner user may read the file. |
+| 3     | 0q000010 | 0x0008 | Group exec premission: 1 if the owner's group may execute the file. |
+| 4     | 0q000020 | 0x0010 | Group edit premission: 1 if the owner's group may edit or delete the file. |
+| 5     | 0q000040 | 0x0020 | Group read premission: 1 if the owner's group may read the file. |
+| 6     | 0q000100 | 0x0040 | Owner exec premission: 1 if the owner may execute the file. |
+| 7     | 0q000200 | 0x0080 | Owner edit premission: 1 if the owner may edit or delete the file. |
+| 8     | 0q000400 | 0x0100 | Owner read premission: 1 if the owner may read the file. |
+| 9     | 0q001000 | 0x0200 | Sticky bit; restricted deletion flag, as described in (man 2 unlink).
+| 10    | 0q002000 | 0x0400 | Set group ID: 1 if the file, upon executed, must use the owner's group ID instead of the executor's group ID. |
+| 11    | 0q004000 | 0x0800 | Set user ID: 1 if the file, upon executed, must use the owner's user ID instead of the executor's user ID. |
+| 12-13 | 0q030000 | 0x3000 | Unused; set to 0.
+| 14    | 0q040000 | 0x4000 | Is directory: 1 if the file is a directory. Do NOT edit with CHMOD. |
+| 15    | 0q100000 | 0x8000 | Is system: 1 if the file or directory is required by the system. |
 
 
 
