@@ -99,9 +99,9 @@ Found within the directory, a file entry is used to find a file and infomation a
 | 2      | 2      | fe_uid    | User ID: any data the host OS needs to identify users. |
 | 4      | 2      | fe_sect   | Starting sector of the file: first sector of the file's data. |
 | 6      | 3      | fe_len    | File length; low byte indicates how much of the last block is in use. |
-| 9      | 4      | fe_chksum | Checksum of the file's contents: can be used to check validity. |
-| 12     | 2      | fe_strp   | Pointer to the file's name, starting at dir_names. |
-| 15     | 1      | reserved  | Reserved byte: set to 0x00. |
+| 9      | 2      | fe_chksum | Checksum of the file's contents: can be used to check validity. |
+| 11     | 2      | fe_strp   | Pointer to the file's name, starting at dir_names. |
+| 13     | 3      | reserved  | Reserved bytes: set to 0x00. |
 
 ### file flags
 These flags are equal to the linux mode flags (man 2 chmod).
