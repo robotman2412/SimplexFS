@@ -21,7 +21,7 @@ The first sector always contains a header, as follows:
 | 13     | 2      | sxh_ver         | Version ID of the filesystem; this specification is for version ID 0x01 0x00. First byte is major version, second byte is minor version. |
 | 15     | 1      | sxh_media       | Media type: denotes how the media is structured. See: media types table below. |
 | 16     | 4      | sxh_id          | Identifier for host OS: any data. |
-| 20     | 12     | sxh_volid       | Volume name: ascii text, null-terminated if shorter than 12 charatcers. |
+| 20     | 24     | sxh_volid       | Volume name: ascii text, null-terminated if shorter than 24 charatcers. |
 | 252    | 2      | sxh_fat_chksum  | Allocation unit checksum: checksum of the allocation unit. Functions the same as the header checksum. |
 | 254    | 2      | sxh_chksum      | Header checksum, even bytes are XORed into 254, while odd bytes are XORed into 255. For obvious reasons, bytes 254 and 255 are excluded from this logic. |
 
