@@ -14,7 +14,7 @@ The first sector always contains a header, as follows:
 | OFFSET | LENGTH | NAME            | DESCRIPTION |
 | :----- | :----- | :-------------- | :---------- |
 | 0      | 5      | sxh_magic       | Magic, always 0xfe 0xca 0x01 0x32 0x94. |
-| 5      | 2      | sxh_nsect       | Number of sectors in total. |
+| 5      | 2      | sxh_nsect       | Number of sectors in total. This is the number of sectors which fit in the volume or partition. This number includes the sectors required for the header and allocation table, and their copies. |
 | 7      | 2      | sxh_fat_entries | Allocation unit size in entries of 16 bits. |
 | 9      | 2      | sxh_fat_sectors | Allocation unit size in sectors. |
 | 11     | 2      | sxh_root        | Sector index of root directory. |
