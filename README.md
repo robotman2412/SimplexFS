@@ -100,7 +100,8 @@ Found within the directory, a file entry is used to find a file and infomation a
 | 4      | 2      | fe_sect   | Starting sector of the file: first sector of the file's data. |
 | 6      | 1      | fe_len    | 8 lowest bits of the file's length: amount of the last sector of the file which is in use by the file's data. |
 | 7      | 4      | fe_chksum | Checksum of the file's contents: can be used to check validity. |
-| 11     | 5      | reserved  | Reserved bytes: set to 0x00. |
+| 11     | 2      | fe_strp   | Pointer to the file's name, starting at dir_names. |
+| 13     | 3      | reserved  | Reserved bytes: set to 0x00. |
 
 ### file flags
 These flags are equal to the linux mode flags (man 2 chmod).
