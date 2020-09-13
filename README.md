@@ -22,6 +22,7 @@ The first sector always contains a header, as follows:
 | 15     | 1      | sxh_media       | Media type: denotes how the media is structured. See: media types table below. |
 | 16     | 4      | sxh_id          | Identifier for host OS: any data. |
 | 20     | 24     | sxh_volid       | Volume name: ascii text, null-terminated if shorter than 24 charatcers. |
+| 44     | 3      | sxh_rootlen     | Length in bytes of the root directory. |
 | 252    | 2      | sxh_fat_chksum  | Allocation unit checksum: checksum of the allocation unit. Functions the same as the header checksum. |
 | 254    | 2      | sxh_chksum      | Header checksum, even bytes are XORed into 254, while odd bytes are XORed into 255. For obvious reasons, bytes 254 and 255 are excluded from this logic. |
 
