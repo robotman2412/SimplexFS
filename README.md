@@ -86,9 +86,7 @@ To determine the free space, iterate over all sectors in the allocation unit and
 | OFFSET             | LENGTH           | NAME         | DESCRIPTION |
 | :----------------- | :--------------- | :----------- | :---------- |
 | 0                  | 2				| dir_files    | Number of files in the directory. |
-| 2                  | dir_files * 16	| dir_entries  | A list of file entries: one per file in the directory. |
-| 2 + dir_files * 16 | 2				| dir_str_size | Number of bytes that the following file names take up. |
-| 4 + dir_files * 16 | dir_str_size     | dir_names    | Filenames: multiple null-terminated ascii strings. |
+| 2                  | dir_files * 32	| dir_entries  | A list of file entries: one per file in the directory. |
 
 The filename strings correspond to the file entries in the order they are found in, the first file entry corresponds to the first filename.
 
@@ -101,8 +99,8 @@ Found within the directory, a file entry is used to find a file and infomation a
 | 4      | 2      | fe_sect   | Starting sector of the file: first sector of the file's data. |
 | 6      | 3      | fe_len    | File length; low byte indicates how much of the last block is in use. |
 | 9      | 2      | fe_chksum | Checksum of the file's contents: can be used to check validity. |
-| 11     | 2      | fe_strp   | Pointer to the file's name, starting at dir_names. |
-| 13     | 3      | reserved  | Reserved bytes: set to 0x00. |
+| 11     | 5      | reserved  | Unused; set to 0x00. |
+| 16     | 16     | fe_name   | Name of the file; null-terminated ASCII string. |
 
 ### file flags
 These flags are equal to the linux mode flags (man 2 chmod).
