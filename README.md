@@ -86,7 +86,8 @@ To determine the free space, iterate over all sectors in the allocation unit and
 | OFFSET             | LENGTH           | NAME         | DESCRIPTION |
 | :----------------- | :--------------- | :----------- | :---------- |
 | 0                  | 2				| dir_files    | Number of files in the directory. |
-| 2                  | dir_files * 32	| dir_entries  | A list of file entries: one per file in the directory. |
+| 2                  | 30               | reserved     | Reserved for later use. |
+| 32                 | dir_files * 32	| dir_entries  | A list of file entries: one per file in the directory. |
 
 The filename strings correspond to the file entries in the order they are found in, the first file entry corresponds to the first filename.
 
